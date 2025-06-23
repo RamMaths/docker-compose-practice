@@ -1,0 +1,13 @@
+services:
+  unless-stopped:
+    image: image-restart
+    restart: unless-stopped
+  always: 
+    image: image-restart
+    restart: always
+  on-failure:
+    image: image-restart
+    restart: on-failure:2
+  no:
+    image: image-restart
+    restart: "no"
