@@ -1,0 +1,28 @@
+services:
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - 9090:80
+    environment:
+      WORDPRESS_DB_HOST: db-wp
+      WORDPRESS_DB_USER: wp-user
+      WORDPRESS_DB_PASSWORD: 123
+      WORDPRESS_DB_NAME: wp-db
+    depends_on:
+      - db-wp
+    volumes:
+      - /home/ram/data/wp:/var/www/html
+  db-wp:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: wp-db
+      MYSQL_USER: wp-user
+      MYSQL_PASSWORD: 123
+      MYSQL_ROOT_PASSWORD: 123
+    volumes:
+      - /home/ram/data/db:/var/lib/mysql
+volumes:
+  wp:
+  db:
