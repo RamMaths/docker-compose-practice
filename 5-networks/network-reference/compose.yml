@@ -1,0 +1,16 @@
+services:
+  svc-apache:
+    image: httpd
+    networks:
+      - frontal 
+    ports:
+      - 80:80
+  svc-tomcat:
+    image: tomcat
+    networks:
+      - frontal
+    ports:
+      - 8080:8080
+
+networks:
+  frontal:
