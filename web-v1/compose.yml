@@ -1,0 +1,7 @@
+services:
+  web:
+    build: .
+    image: ramses30/web:v1
+    container_name: web_frontal
+    ports:
+      - 80:80
